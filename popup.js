@@ -1,3 +1,5 @@
+
+
 var MainLogic = {
   alllinks: [],
   visibleLinks: [],
@@ -45,7 +47,7 @@ var MainLogic = {
       li.appendChild(span);
       linksWrap.appendChild(li);
     }
-    $id("jscount").innerText = l.length;
+    MainLogic.$id("jscount").innerText = l.length;
   },
 
   //下载所选链接
@@ -150,5 +152,14 @@ var MainLogic = {
     }, 2000);
   }
 };
+
+chrome.extension.onMessage.addListener(function(links) {
+  for(var index in links){
+    MainLogic.alllinks.push(links[index]);
+  }
+  MainLogic.alllinks.sort();
+  MainLogic.visibleLinks = MainLogic.alllinks;
+  MainLogic.showLinks(MainLogic.visibleLinks);
+});
 
 MainLogic.init();
