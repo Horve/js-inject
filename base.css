@@ -1,0 +1,17 @@
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+fieldset, img { border:none;}
+address, caption, cite, code, dfn, th, var{ font-style:normal; font-weight:normal; }
+ul, ol { list-style:none; }
+input { padding-top:0; padding-bottom:0;}
+input::-moz-focus-inner { border:none; padding:0; }
+select, input { vertical-align:middle; }
+select, input, textarea,h1,h2,h3,h4 { font-size:12px; margin:0;font-weight: normal;}
+table { border-collapse:collapse; }
+.clearfix:after{ clear: both; display: block; visibility: hidden; height: 0; line-height: 0; content: ""; }
+.clearfix{ *zoom: 1; }
+.h10{height: 10px;}
+.fl{ float:left;}
+.fontNone{ display: none;}
+#footer_hr{display: none;}
+a { text-decoration:none;}
+em{ font-style: normal; }

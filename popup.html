@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <link rel="stylesheet" type="text/css" href="base.css">
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%; font-size:14px;
+      }
+      .blank15 {height:15px;}
+      .wrapper { width:350px; padding:20px; height:550px; position:relative;}
+      .xhr-errbox {width:160px; height:40px; background:rgba(255,255,255,.9); line-height:40px; text-align:center; color:000; font-size:14px; font-family:microsoft yahei, simsun; border:1px solid rgba(255,64,64,.8); box-shadow:0 0 10px rgba(255,64,64,.8); position:absolute; top:50%; left:50%; margin-left:-80px; margin-top:-20px; border-radius:4px; display:none; -webkit-transition:all .3s ease-in-out;}
+      h2.title {text-align:center; font-size:18px; font-weight:bold; border-bottom:2px solid RGBA(72,151,228,.2); padding-bottom:10px;}
+      .input-row {height:35px; position:relative; margin-top:20px;}
+      .input-row p {height:35px; line-height:35px;}
+      .txt-row {padding:20px 0 10px 0; border-bottom:1px solid #efefef;}
+      p.p-txt {width:70px; position:absolute; top:0; left:0;}
+      p.p-btn {width:80px; position:absolute; top:0; right:0;}
+      p.p-inp {margin-left:70px;}
+      p.p-inp input {height:33px; border-radius:3px; border:1px solid #ccc; width:100%; display:block; outline:none; box-sizing: border-box;}
+
+      p.p-inp input:focus {border-color:rgba(96,154,253,.5); box-shadow:0 0 5px rgba(96,154,253,.5);}
+      p.p-inp input.errbox {border-color:rgba(255,64,64,.5); box-shadow:0 0 5px rgba(255,64,64,.5);}
+      #linkList {margin-top:10px; height:148px; overflow-y:scroll;}
+      #linkList li {height:24px; line-height:24px; font-size:12px; overflow: hidden; white-space:nowrap; text-overflow:ellipsis;}
+      #linkList li:hover {background:RGBA(72,151,228,.2);}
+      button {border:0; border-radius:4px; color:#fff; display:inline-block; padding:10px; outline:none; width:100%;}
+      button.blue {background:RGB(72,151,228);}
+      button.red {background:#FF0033;}
+      button.red:hover {background:#ff6666;}
+      button.red:active {background:#FF0033;}
+      button.blue:hover {background:RGBA(72,151,228,.8);}
+      button.blue:active {background:RGBA(72,151,228,1);}
+      input[type=checkbox] {margin-right:5px;}
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="xhr-errbox" id="xhr-errbox">获取脚本错误</div>
+      <h2 class="title">Elong页面脚本拦截注入v1.0</h2>
+      <div class="input-row">
+        <p class="p-txt">检索URL：</p>
+        <p class='p-inp'>
+          <input type="text" placeholder="支持关键字" id="filterValue" />
+        </p>
+      </div>
+      <div class="txt-row">
+        检索到的脚本(<span id="jscount">0</span>个)：
+      </div>
+      <ul id="linkList">
+        
+      </ul>
+      <div class="input-row">
+        <button id="save" class="blue">下载选中脚本</button>
+      </div>
+      <!-- <div class="input-row">
+        <button class="red" id="interceptor">拦截选中脚本</button>
+      </div> -->
+      <div class="txt-row">
+        向页面中注入指定脚本(requireJS入口文件)：
+      </div>
+      <div class="input-row">
+        <p class="p-txt">脚本URL：</p>
+        <p class='p-inp p-mr90'>
+          <input type="text" placeholder="远程文件的绝对路径" id="injectValue" value="http://www.ihorve.com/elong/t/main.js" />
+        </p>
+      </div>
+      <div class="input-row">
+        <button id="injectNormal" class="blue">普通方式注入</button>
+      </div>
+      <div class="input-row">
+        <button id="injectDatamain" class="blue">requireJS入口脚本注入</button>
+      </div>
+      <div class="blank15"></div>
+    </div>
+    <script type="text/javascript" src="jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="popup.js"></script>
+  </body>
+</html>
+
