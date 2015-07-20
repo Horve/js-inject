@@ -81,9 +81,7 @@ var MainLogic = {
             var code = xhr.responseText;
             console.log(code);
             chrome.tabs.executeScript(null, {code: code, allFrames: false}, function(){
-              if(typeof callback === 'function') {
-                callback();
-              }
+              console.log("executeScript success!!!!!!!!!");
             });
           } else {
             $('#xhr-errbox').show();

@@ -18,7 +18,8 @@ chrome.webRequest.onBeforeRequest.addListener(
   {
     urls: [
     	"*://*.jquery.top/*",
-      "*://*.baidu.com/*"
+      "*://*.elongstatic.com/*",
+      "*://*.51vv.com/*"
     ],
     types: ["script"]
   },
