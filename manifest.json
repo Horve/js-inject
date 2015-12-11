@@ -8,8 +8,6 @@
 	},
 	"permissions": [
 		"downloads", 
-		"<all_urls>", 
-		"*://*.elong.com/*",
 		"*://*.51vv.com/*",
 		"webRequest", 
 		"webRequestBlocking",
@@ -21,7 +19,7 @@
 	"content_scripts": [
 		{
 			"matches": ["http://*/*"],
-			"js": ["jquery-1.9.1.js"],
+			"js": ["returnjs.js"],
 			"run_at": "document_end"
 		}
 	],
